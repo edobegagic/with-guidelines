@@ -117,7 +117,7 @@
       <div class="media-facade" onclick="loadAndPlayVideo(this)">
         <p>Click to load and play video</p>
       </div>
-      <video controls src="/videos/example-compressed.mp4"></video>
+      <video controls src="videos/example-compressed.mp4"></video>
 
       <!-- 2.23 Reduce the Impact of Downloadable or Physical Documents
              Optimized PDFs: Provide links to download PDFs that are compressed and optimized for quick downloads.
@@ -136,7 +136,7 @@
       function loadAndPlayVideo(element) {
         // This function replaces the placeholder with a video element and starts playback
         element.innerHTML =
-          '<video controls autoplay src="/videos/example-compressed.mp4"></video>';
+          '<video controls autoplay src="videos/example-compressed.mp4"></video>';
         element.onclick = null; // Remove the onclick event to prevent reinserting the video if clicked again
       }
     </script>
