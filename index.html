@@ -6,16 +6,15 @@
     <title>Sustainable Web Design Example</title>
     <style>
       /* 2.18 Adopting a More Sustainable Approach to Typography
-           Utilize CSS to specify common system fonts instead of loading external web fonts.
-           Use font-display: swap; in your @font-face to minimize the impact of loading fonts. */
+           Extensive use of custom web fonts without optimization */
+      @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Roboto:300,400,500,700,900");
       body {
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
+        font-family: "Open Sans", sans-serif;
         line-height: 1.6;
         color: #333;
         margin: 0;
         padding: 0;
-        background: #f4f4f4;
+        background: #fff;
       }
 
       /* 2.6 Create a Frictionless Lightweight Experience by Default
@@ -45,37 +44,15 @@
 
       /* 2.17 Adopting a More Sustainable Approach to Animation
            Reduced Motion: Use the prefers-reduced-motion media query to respect the user's system preferences. */
-
-      /* 2.17 Adopting a More Sustainable Approach to Animation
-           Heavy use of animations without respect to user preferences */
-      @keyframes slideInRight {
-        from {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
         }
       }
-
-      @keyframes slideInLeft {
-        from {
-          transform: translateX(-100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      .slide-in-right {
-        animation: slideInRight 1s forwards;
-      }
-
-      .slide-in-left {
-        animation: slideInLeft 1s forwards;
+      img {
+        width: 100%;
+        height: auto;
       }
 
       /* 2.7 Avoid Unnecessary or an Overabundance of Assets
@@ -110,7 +87,12 @@
              Incorporate formats like WebP and JPEG XR that offer better compression rates.
              Lazy Loading Implementation: Code examples showing lazy loading where images only load as they come into the viewport.
              Responsive Images: Use the <picture> element with different sources for different screen sizes. -->
-      <picture class="slide-in-right">
+      <!-- 2.15 Adopting a More Sustainable Approach to Managing Image Assets
+             Optimized Images: Use a series of images optimized for different resolutions and sizes.
+             Incorporate formats like WebP and JPEG XR that offer better compression rates.
+             Lazy Loading Implementation: Code examples showing lazy loading where images only load as they come into the viewport.
+             Responsive Images: Use the <picture> element with different sources for different screen sizes. -->
+      <picture>
         <source srcset="images/1.webp" type="image/webp" />
         <img
           src="images/1.jpg"
@@ -119,7 +101,7 @@
           height="600"
         />
       </picture>
-      <picture class="slide-in-left">
+      <picture>
         <source srcset="images/2.webp" type="image/webp" />
         <img
           src="images/2.jpg"
@@ -127,10 +109,9 @@
           loading="lazy"
           width="800"
           height="600"
-          class="slide-in-right"
         />
       </picture>
-      <picture class="slide-in-right">
+      <picture>
         <source srcset="images/3.webp" type="image/webp" />
         <img
           src="images/3.jpg"
@@ -138,10 +119,9 @@
           loading="lazy"
           width="800"
           height="600"
-          class="slide-in-right"
         />
       </picture>
-      <picture class="slide-in-left">
+      <picture>
         <source srcset="images/4.webp" type="image/webp" />
         <img
           src="images/4.jpg"
@@ -149,10 +129,9 @@
           loading="lazy"
           width="800"
           height="600"
-          class="slide-in-right"
         />
       </picture>
-      <picture class="slide-in-right">
+      <picture>
         <source srcset="images/5.webp" type="image/webp" />
         <img
           src="images/5.jpg"
@@ -160,7 +139,6 @@
           loading="lazy"
           width="800"
           height="600"
-          class="slide-in-right"
         />
       </picture>
       <!-- 2.16 Adopting a More Sustainable Approach to Media Assets
@@ -212,29 +190,6 @@
           '<video controls autoplay width="600" height="337.5" src="videos/example-compressed.mp4"></video>';
         element.onclick = null; // Remove the onclick event to prevent reinserting the video if clicked again
       }
-
-      // JavaScript to handle the slide-in animation on scroll
-      document.addEventListener("DOMContentLoaded", function () {
-        const images = document.querySelectorAll("picture");
-        const options = {
-          root: null,
-          threshold: 0.1,
-        };
-
-        const observer = new IntersectionObserver(function (entries, observer) {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = "1";
-              entry.target.classList.add("slide-in-animation");
-              observer.unobserve(entry.target);
-            }
-          });
-        }, options);
-
-        images.forEach((image) => {
-          observer.observe(image);
-        });
-      });
     </script>
   </body>
 </html>
