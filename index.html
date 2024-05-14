@@ -19,45 +19,17 @@
       }
 
       /* 2.6 Create a Frictionless Lightweight Experience by Default
-           Complex multi-level navigation with heavy CSS and JavaScript */
+           Efficient Navigation: Design a simple and intuitive navigation menu. */
       nav {
-        background: #333;
+        text-align: center;
+        background: #fff;
         padding: 10px 0;
       }
 
-      nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-      }
-
-      nav ul li {
-        display: inline-block;
-        position: relative;
-      }
-
-      nav ul li a {
-        display: block;
-        padding: 10px 15px;
-        color: #fff;
+      nav a {
+        margin: 0 15px;
         text-decoration: none;
-      }
-
-      nav ul li ul {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #444;
-      }
-
-      nav ul li:hover ul {
-        display: block;
-      }
-
-      nav ul li ul li {
-        display: block;
+        color: #333;
       }
 
       /* 2.16 Adopting a More Sustainable Approach to Media Assets
@@ -102,12 +74,17 @@
 
       /* 2.7 Avoid Unnecessary or an Overabundance of Assets
            Minimalist Design: Focus on content that provides the user with exactly what they need without distractions. */
+      /* 2.7 Avoid Unnecessary or an Overabundance of Assets
+           Design with excessive decorative elements */
       main {
         padding: 20px;
         max-width: 800px;
         margin: auto;
-        background: #fff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-size: cover;
+        background: url("images/1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
       }
 
       h1,
@@ -118,25 +95,9 @@
   </head>
   <body>
     <nav>
-      <ul>
-        <li>
-          <a href="#about">About</a>
-          <ul>
-            <li><a href="#team">Our Team</a></li>
-            <li><a href="#history">History</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#services">Services</a>
-          <ul>
-            <li><a href="#consulting">Consulting</a></li>
-            <li><a href="#development">Development</a></li>
-          </ul>
-        </li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
-
     <main>
       <section id="about">
         <h1>Optimized Web Page</h1>
