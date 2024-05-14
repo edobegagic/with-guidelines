@@ -33,30 +33,12 @@
       }
 
       /* 2.16 Adopting a More Sustainable Approach to Media Assets
-           Media Queries for Conditional Loading: Implement conditions where media is only loaded on larger screens. */
-      @media (min-width: 768px) {
-        video,
-        audio {
-          display: block;
-          max-width: 600px;
-          margin: 20px auto;
-        }
-      }
-
-      /* 2.16 Adopting a More Sustainable Approach to Media Assets
-           Facade Pattern for Media Loading: Display a placeholder image until the user interacts with it. */
-      .media-facade {
-        background: url("images/placeholder.jpg");
-        width: 600px;
-        height: 337.5px;
-        margin-left: 100px;
-        margin-right: 100px;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
+           Media files loaded directly without conditional loading */
+      video,
+      audio {
+        display: block;
+        max-width: 600px;
+        margin: 20px auto;
       }
 
       /* 2.17 Adopting a More Sustainable Approach to Animation
@@ -100,41 +82,68 @@
       </section>
 
       <!-- 2.15 Adopting a More Sustainable Approach to Managing Image Assets
-             Use of high-quality JPEG images with slide-in animation on scroll -->
-      <img src="images/1.jpg" alt="Non-Optimized Image" />
-      <img src="images/2.jpg" alt="Non-Optimized Image" class="slide-in-left" />
-      <img src="images/3.jpg" alt="Non-Optimized Image" />
-      <img src="images/4.jpg" alt="Non-Optimized Image" class="slide-in-left" />
-      <img src="images/5.jpg" alt="Non-Optimized Image" />
+             Optimized Images: Use a series of images optimized for different resolutions and sizes.
+             Incorporate formats like WebP and JPEG XR that offer better compression rates.
+             Lazy Loading Implementation: Code examples showing lazy loading where images only load as they come into the viewport.
+             Responsive Images: Use the <picture> element with different sources for different screen sizes. -->
+      <picture>
+        <source srcset="images/1.webp" type="image/webp" />
+        <img
+          src="images/1.jpg"
+          alt="Optimized Image"
+          width="800"
+          height="600"
+        />
+      </picture>
+      <picture>
+        <source srcset="images/2.webp" type="image/webp" />
+        <img
+          src="images/2.jpg"
+          alt="Optimized Image"
+          loading="lazy"
+          width="800"
+          height="600"
+        />
+      </picture>
+      <picture>
+        <source srcset="images/3.webp" type="image/webp" />
+        <img
+          src="images/3.jpg"
+          alt="Optimized Image"
+          loading="lazy"
+          width="800"
+          height="600"
+        />
+      </picture>
+      <picture>
+        <source srcset="images/4.webp" type="image/webp" />
+        <img
+          src="images/4.jpg"
+          alt="Optimized Image"
+          loading="lazy"
+          width="800"
+          height="600"
+        />
+      </picture>
+      <picture>
+        <source srcset="images/5.webp" type="image/webp" />
+        <img
+          src="images/5.jpg"
+          alt="Optimized Image"
+          loading="lazy"
+          width="800"
+          height="600"
+        />
+      </picture>
 
       <!-- 2.16 Adopting a More Sustainable Approach to Media Assets
-             Facade Pattern for Media Loading: Display a placeholder until user interaction triggers loading. -->
-      <div class="media-facade" onclick="loadAndPlayVideo(this)">
-        <svg
-          width="81"
-          height="81"
-          viewBox="0 0 81 81"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clip-path="url(#clip0_111_7)">
-            <path
-              d="M0 40.5C0 18.1313 18.1313 0 40.5 0C62.8687 0 81 18.1313 81 40.5C81 62.8687 62.8687 81 40.5 81C18.1313 81 0 62.8687 0 40.5Z"
-              fill="black"
-              fill-opacity="0.7"
-            />
-            <path
-              d="M32.9063 27.641V53.3585C32.9065 53.8213 33.0336 54.2752 33.2738 54.6707C33.514 55.0663 33.858 55.3885 34.2685 55.6022C34.679 55.816 35.1403 55.9131 35.6021 55.883C36.0639 55.8529 36.5086 55.6968 36.8879 55.4316L55.2572 42.5728C55.5904 42.3394 55.8624 42.0291 56.0502 41.6682C56.238 41.3074 56.336 40.9066 56.336 40.4997C56.336 40.0929 56.238 39.6921 56.0502 39.3312C55.8624 38.9704 55.5904 38.6601 55.2572 38.4266L36.8904 25.5679C36.511 25.3019 36.0657 25.1452 35.6033 25.1148C35.1409 25.0845 34.679 25.1816 34.268 25.3957C33.857 25.6099 33.5127 25.9327 33.2725 26.3291C33.0324 26.7254 32.9057 27.1776 32.9063 27.641Z"
-              fill="white"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_111_7">
-              <rect width="81" height="81" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
-      </div>
+             Direct embedding of media without facade pattern -->
+      <video
+        class="media-direct"
+        controls
+        autoplay
+        src="videos/example-uncompressed.mp4"
+      ></video>
 
       <!-- 2.23 Reduce the Impact of Downloadable or Physical Documents
              Optimized PDFs: Provide links to download PDFs that are compressed and optimized for quick downloads.
