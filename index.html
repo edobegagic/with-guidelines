@@ -45,15 +45,37 @@
 
       /* 2.17 Adopting a More Sustainable Approach to Animation
            Reduced Motion: Use the prefers-reduced-motion media query to respect the user's system preferences. */
-      @media (prefers-reduced-motion: reduce) {
-        * {
-          animation: none !important;
-          transition: none !important;
+
+      /* 2.17 Adopting a More Sustainable Approach to Animation
+           Heavy use of animations without respect to user preferences */
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
         }
       }
-      img {
-        width: 100%;
-        height: auto;
+
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .slide-in-right {
+        animation: slideInRight 1s forwards;
+      }
+
+      .slide-in-left {
+        animation: slideInLeft 1s forwards;
       }
 
       /* 2.7 Avoid Unnecessary or an Overabundance of Assets
@@ -88,7 +110,7 @@
              Incorporate formats like WebP and JPEG XR that offer better compression rates.
              Lazy Loading Implementation: Code examples showing lazy loading where images only load as they come into the viewport.
              Responsive Images: Use the <picture> element with different sources for different screen sizes. -->
-      <picture>
+      <picture class="slide-in-right">
         <source srcset="images/1.webp" type="image/webp" />
         <img
           src="images/1.jpg"
@@ -97,12 +119,8 @@
           height="600"
         />
       </picture>
-      <picture>
-        <source
-          srcset="images/2.webp"
-          type="image/webp"
-          class="slide-in-right"
-        />
+      <picture class="slide-in-left">
+        <source srcset="images/2.webp" type="image/webp" />
         <img
           src="images/2.jpg"
           alt="Optimized Image"
@@ -112,12 +130,8 @@
           class="slide-in-right"
         />
       </picture>
-      <picture>
-        <source
-          srcset="images/3.webp"
-          type="image/webp"
-          class="slide-in-right"
-        />
+      <picture class="slide-in-right">
+        <source srcset="images/3.webp" type="image/webp" />
         <img
           src="images/3.jpg"
           alt="Optimized Image"
@@ -127,12 +141,8 @@
           class="slide-in-right"
         />
       </picture>
-      <picture>
-        <source
-          srcset="images/4.webp"
-          type="image/webp"
-          class="slide-in-right"
-        />
+      <picture class="slide-in-left">
+        <source srcset="images/4.webp" type="image/webp" />
         <img
           src="images/4.jpg"
           alt="Optimized Image"
@@ -142,12 +152,8 @@
           class="slide-in-right"
         />
       </picture>
-      <picture>
-        <source
-          srcset="images/5.webp"
-          type="image/webp"
-          class="slide-in-right"
-        />
+      <picture class="slide-in-right">
+        <source srcset="images/5.webp" type="image/webp" />
         <img
           src="images/5.jpg"
           alt="Optimized Image"
@@ -209,7 +215,7 @@
 
       // JavaScript to handle the slide-in animation on scroll
       document.addEventListener("DOMContentLoaded", function () {
-        const images = document.querySelectorAll("img");
+        const images = document.querySelectorAll("picture");
         const options = {
           root: null,
           threshold: 0.1,
