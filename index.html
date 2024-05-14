@@ -74,17 +74,12 @@
 
       /* 2.7 Avoid Unnecessary or an Overabundance of Assets
            Minimalist Design: Focus on content that provides the user with exactly what they need without distractions. */
-      /* 2.7 Avoid Unnecessary or an Overabundance of Assets
-           Design with excessive decorative elements */
       main {
         padding: 20px;
         max-width: 800px;
         margin: auto;
+        background: #fff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        background-size: cover;
-        background: url("images/1.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
       }
 
       h1,
@@ -105,59 +100,12 @@
       </section>
 
       <!-- 2.15 Adopting a More Sustainable Approach to Managing Image Assets
-             Optimized Images: Use a series of images optimized for different resolutions and sizes.
-             Incorporate formats like WebP and JPEG XR that offer better compression rates.
-             Lazy Loading Implementation: Code examples showing lazy loading where images only load as they come into the viewport.
-             Responsive Images: Use the <picture> element with different sources for different screen sizes. -->
-      <picture>
-        <source srcset="images/1.webp" type="image/webp" />
-        <img
-          src="images/1.jpg"
-          alt="Optimized Image"
-          width="800"
-          height="600"
-        />
-      </picture>
-      <picture>
-        <source srcset="images/2.webp" type="image/webp" />
-        <img
-          src="images/2.jpg"
-          alt="Optimized Image"
-          loading="lazy"
-          width="800"
-          height="600"
-        />
-      </picture>
-      <picture>
-        <source srcset="images/3.webp" type="image/webp" />
-        <img
-          src="images/3.jpg"
-          alt="Optimized Image"
-          loading="lazy"
-          width="800"
-          height="600"
-        />
-      </picture>
-      <picture>
-        <source srcset="images/4.webp" type="image/webp" />
-        <img
-          src="images/4.jpg"
-          alt="Optimized Image"
-          loading="lazy"
-          width="800"
-          height="600"
-        />
-      </picture>
-      <picture>
-        <source srcset="images/5.webp" type="image/webp" />
-        <img
-          src="images/5.jpg"
-          alt="Optimized Image"
-          loading="lazy"
-          width="800"
-          height="600"
-        />
-      </picture>
+             Use of high-quality JPEG images with slide-in animation on scroll -->
+      <img src="images/1.jpg" alt="Non-Optimized Image" />
+      <img src="images/2.jpg" alt="Non-Optimized Image" class="slide-in-left" />
+      <img src="images/3.jpg" alt="Non-Optimized Image" />
+      <img src="images/4.jpg" alt="Non-Optimized Image" class="slide-in-left" />
+      <img src="images/5.jpg" alt="Non-Optimized Image" />
 
       <!-- 2.16 Adopting a More Sustainable Approach to Media Assets
              Facade Pattern for Media Loading: Display a placeholder until user interaction triggers loading. -->
